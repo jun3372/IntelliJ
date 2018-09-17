@@ -1,0 +1,15 @@
+sudo: required
+
+language: bash
+services: docker
+
+env:
+ - DOCKER_IMAGE=jun3/IntelliJ
+
+script:
+  - docker build -t ${DOCKER_IMAGE} .
+
+after_script:
+  - docker images
+  - docker run -d -p 8888:8888 jun3/IntelliJ -t ${DOCKER_IMAGE}
+  - docker ps -a

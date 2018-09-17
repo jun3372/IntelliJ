@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  vpn:
+    image: jun3/IntelliJ
+    restart: always
+    ports:
+      - "8888:8888"
+    privileged: true
+    hostname: intellij-reverseproxy
+    container_name: intellij-reverseproxy
